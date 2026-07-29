@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useBooking } from "../Context/BookingContext.jsx";
+import NotFound from "./NotFound.jsx";
 
 export default function BusDetails() {
     const { id } = useParams();
@@ -9,7 +10,7 @@ export default function BusDetails() {
 
     const bus = busList.find((item) => item.id === id);
 
-    if (!bus) return <main><h1>Bus Not Found</h1></main>;
+    if (!bus) return <NotFound />;
 
     let selectedTickets = tickets;
 
